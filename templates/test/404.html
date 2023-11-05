@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'test/css/normalize.css' %}">
+  <title>{{ title }}</title>
+</head>
+<body>
+  <section class="page_404">
+	<div class="container">
+		<div class="row">
+		<div class="col-sm-12 ">
+		<div class="col-sm-10 col-sm-offset-1  text-center">
+		<div class="four_zero_four_bg">
+			<h1 class="text-center ">404</h1>
+    <div class="background"><img src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif"></div>
+
+		</div>
+
+		<div class="contant_box_404">
+		<h3 class="h2">
+		Look like you're lost
+		</h3>
+
+		<p>the page you are looking for not avaible!</p>
+
+		<a href="" class="link_404">Go to Home</a>
+	</div>
+		</div>
+		</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>
+
+
+      <p class="p_register"><label for="{{ form.title.id_for_label }}">First Name</label>{{ form.title }}</p>
+                             <input type="text" id="fname" name="firstname" placeholder="Search your waste bank here!">
+
+                       <button type="submit">Submit</button>

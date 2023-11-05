@@ -1,0 +1,127 @@
+{% load static %}
+
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/about_us.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'articles_static/css/service.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+{% block mainmenu %}
+    <header>
+        <nav>
+            {% csrf_token %}
+            <div class="topnav responsive" id="myTopnav">
+
+                <a href="http://127.0.0.1:8000"><img class="header__logo" src="../../static/test/img/img.png"
+                                                     alt="logo"></a>
+                <div class="navbar">
+                    <a class="navbar_" href="http://127.0.0.1:8000/about_us/">About Us</a>
+                    <a class="navbar_" href="http://127.0.0.1:8000/service/">Service</a>
+                    <a class="navbar_" href="http://127.0.0.1:8000/product/">Product</a>
+                    <a class="navbar_" href="http://127.0.0.1:8000/contact">Contact</a>
+                </div>
+                {% if request.user.is_authenticated %}
+                    <div class="success">
+                        <div class="dropdown">
+                            <button class="dropbtn">{{ user.username }}
+                            </button>
+                            <img src="{{ user.avatar }}">
+                            <div class="dropdown-content">
+                                <a class="user" href="{% url 'setting' %}">Profile</a>
+                                <a href="#">Notifications</a>
+                                <a class="logout" href="{% url 'logout' %}?next={{ request.path | urlencode }}">Logout</a>
+                            </div>
+                        </div>
+
+                    </div>
+                {% else %}
+                    <a href="{% url 'login' %}?next={% firstof request.path '/' %}">
+                        <button class="login_button">Sign In</button>
+                    </a>
+
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+{% endblock mainmenu %}
+{% block content %}
+{% endblock %}
+{% block footer %}
+    <div class="footer">
+        <section style="height:80px;"></section>
+        <!----------- Footer ------------>
+        <footer class="footer_bs">
+            <div class="row">
+                <div class="col-md-3 footer-brand animated fadeInLeft">
+                    <img class="logo" src="../../static/test/img/logo_master.svg" alt="logo">
+                    <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies.
+                        Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque
+                        ex mi ut sem.</p>
+                    <p>© 2023 BS3 UI Kit, All rights reserved</p>
+                </div>
+                <div class="col-md-4 footer-nav animated fadeInUp">
+                    <h4>Menu —</h4>
+                    <div class="col-md-6">
+                        <ul class="pages">
+                            <li><a href="http://127.0.0.1:8000/about_us/">About Us</a></li>
+                            <li><a href="http://127.0.0.1:8000/service/">Service</a></li>
+                            <li><a href="http://127.0.0.1:8000/product/">Product</a></li>
+                            <li><a href="#">Account</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list">
+                            <li><a href="#">Help/FAQ</a></li>
+                            <li><a href="http://127.0.0.1:8000/contact">Contacts</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 footer-social animated fadeInDown">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Tiktok</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-ns animated fadeInRight">
+                    <h4>Newsletter</h4>
+                    <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                    <p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+  </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+             <section style="text-align:center; margin:10px auto;"><p>Designed by <a class="designer"  href="/">Iliyas Smagulov</a></p>
+        </section>
+        </footer>
+    </div>
+{% endblock footer %}
+
+<script src="../../static/test/js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="../../static/test/js/plugins.js"></script>
+<script src="../../static/test/js/main.js"></script>
+
+
+</body>
+
+</html>
