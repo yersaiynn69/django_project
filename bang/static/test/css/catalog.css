@@ -4,11 +4,15 @@
     grid-template-columns: 1fr 1fr 1fr;
     margin-left: 250px;
     margin-right: 250px;
-    margin-top: 80px;
+
 }
 
 .products img {
     height: 80%;
+}
+
+.product{
+    margin-bottom: 30px;
 }
 
 .product_name {
@@ -18,14 +22,6 @@
     border-radius: 0 0 20px 20px;
 }
 
-.selling {
-    height: 100%;
-    width: 100%;
-    margin-top: 150px;
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    line-height: normal;
-}
 
 .selling p {
     color: #222831;
@@ -59,10 +55,10 @@
 .product_name h4 {
     font-size: 18px;
     font-weight: 600;
-    padding-top: 10px;
     float: left;
     width: 250px;
     margin-left: 20px;
+    margin-top: 2px;
 }
 
 .product_name h5 {
@@ -70,5 +66,33 @@
     font-weight: 200;
     float: left;
     margin-left: 20px;
-    margin-top: 5px;
+    margin-top: -10px;
+
+}
+
+
+.product img {
+    width: 290px;
+    height: 290px;
+}
+
+.buy {
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    background: transparent;
+    cursor: pointer;
+    float: right;
+    margin-top: -22px;
+    margin-right: 20px;
+}
+
+.buy:hover {
+    color: #016A70;
+    background-color: white;
 }

@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="info_block_2">
-            {% for p in posts %}
+            {% for p in articles %}
                 <div class="list-articles">
                     <div>
                         {% if p.photo %}
@@ -47,7 +47,7 @@
                         {% endautoescape %}
                         <div class="article-panel">
                             <h4 class="last">Date: {{ p.time_update|date:"d-m-Y H:i" }}</h4>
-                            <h5 class="link-read-post"><a href="{{ p.get_absolute_url }}">View More &gt</a></h5>
+                            <h5 class="link-read-post"><a href="{{ p.get_absolute_urls }}">View More &gt</a></h5>
                         </div>
 
                     </div>

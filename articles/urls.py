@@ -4,5 +4,5 @@ from articles.views import *
 
 urlpatterns = [
     path('service/', service, name='service'),
-    path('post/<slug:post_slug>/,', show_post, name='post'),
+    path('service/<slug:article_slug>/,', show_article, name='show_article'),
 ]

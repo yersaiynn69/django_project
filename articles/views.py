@@ -4,21 +4,21 @@ from articles.models import Articles
 
 
 def service(request):
-    posts = Articles.objects.all()
+    articles = Articles.objects.all()
     context = {
-        'posts': posts,
+        'articles': articles,
         'title': 'Service',
     }
     return render(request, 'test/service.html', context=context)
 
-def show_post(request, post_slug):
-    post = get_object_or_404(Articles, slug=post_slug)
+def show_article(request, article_slug):
+    article = get_object_or_404(Articles, slug=article_slug)
 
     context = {
-        'post': post,
-        'title': post.title,
+        'article': article,
+        'title': article.title,
     }
-    return render(request, 'test/post.html', context=context)
+    return render(request, 'test/articles.html', context=context)
 
 
 

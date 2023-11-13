@@ -1,0 +1,24 @@
+{% extends 'test/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="products">
+        {% for p in posts %}
+            <div class="product">
+                {% if p.photo %}
+                    <img src="{{ p.photo.url }}" alt="product_photo">
+                {% endif %}
+                <div class="product_name">
+                    {% autoescape on %}
+                         <h4 class="first">{{ p.title|truncatechars:12 }}</h4>
+                    {% endautoescape %}
+                    <h5 class="last">Rp. {{ p.price }}</h5>
+                    <form action="{{ p.get_absolute_url }}">
+                        <button class="buy">В корзину</button>
+                    </form>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

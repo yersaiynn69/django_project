@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
 
+
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'time_create', 'photo', 'is_published')
     list_display_links = ('id','title')
@@ -13,7 +15,13 @@ class AboutMeAdmin(admin.ModelAdmin):
     list_display = ('title', 'description', 'photo', 'content')
     search_fields = ('title',)
 
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'time_create', 'message')
+    search_fields = ('name',)
+
 
 admin.site.register(Product,ProductAdmin)
 admin.site.register(AboutMe,AboutMeAdmin)
+admin.site.register(Feedback,FeedbackAdmin)
+
 

@@ -8,9 +8,13 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'test/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/catalog.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'test/css/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'test/css/about_us.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'articles_static/css/service.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'articles_static/css/articles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/contact.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/product.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -18,6 +22,7 @@
 </head>
 
 <body>
+
 {% block mainmenu %}
     <header>
         <nav>
@@ -41,7 +46,8 @@
                             <div class="dropdown-content">
                                 <a class="user" href="{% url 'setting' %}">Profile</a>
                                 <a href="#">Notifications</a>
-                                <a class="logout" href="{% url 'logout' %}?next={{ request.path | urlencode }}">Logout</a>
+                                <a class="logout"
+                                   href="{% url 'logout' %}?next={{ request.path | urlencode }}">Logout</a>
                             </div>
                         </div>
 
@@ -55,6 +61,33 @@
             </div>
         </nav>
     </header>
+{#        <div class="message">#}
+{#            {% if messages %}#}
+{#                {% for message in messages %}#}
+{#                    {% if message.tags == 'success' %}#}
+{#                        <div class="alert alert-success alert-dismissible" role="alert">#}
+{#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+{#                            {{ message|safe|escape }}#}
+{#                        </div>#}
+{#                    {% elif message.tags == 'error' %}#}
+{#                        <div class="alert alert-danger alert-dismissible" role="alert">#}
+{#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+{#                            {{ message|safe|escape }}#}
+{#                        </div>#}
+{#                    {% elif message.tags == 'info' %}#}
+{#                        <div class="alert alert-info alert-dismissible" role="alert">#}
+{#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+{#                            {{ message|safe|escape }}#}
+{#                        </div>#}
+{#                    {% elif message.tags == 'warning' %}#}
+{#                        <div class="alert alert-warning alert-dismissible" role="alert">#}
+{#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+{#                            {{ message|safe|escape }}#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#            {% endif %}#}
+{#        </div>#}
 {% endblock mainmenu %}
 {% block content %}
 {% endblock %}
@@ -111,8 +144,9 @@
                     </div><!-- /input-group -->
                 </div>
             </div>
-             <section style="text-align:center; margin:10px auto;"><p>Designed by <a class="designer"  href="/">Iliyas Smagulov</a></p>
-        </section>
+            <section style="text-align:center; margin:10px auto;"><p>Designed by <a class="designer" href="/">Iliyas
+                Smagulov</a></p>
+            </section>
         </footer>
     </div>
 {% endblock footer %}

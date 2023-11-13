@@ -4,11 +4,14 @@ main {
     height: 520px;
 }
 
+
 .main_block {
     display: grid;
     grid-template-columns: 50% 50%;
     padding-top: 60px;
 }
+
+
 
 .main_welcome {
     margin-left: 200px;
@@ -464,7 +467,7 @@ main {
     height: 100%;
     margin-left: 190px;
     margin-right: 190px;
-    margin-top: 150px;
+    margin-top: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -474,7 +477,7 @@ main {
 }
 
 .find_ur_bank {
-    padding-top: 145px;
+    padding-top: 125px;
     line-height: normal;
     font-family: Poppins;
     font-style: normal;
@@ -483,21 +486,22 @@ main {
 
 .find_ur_bank p {
     color: #222831;
-    font-size: 28px;
+    font-size: 35px;
     font-style: normal;
     font-weight: 400;
 }
 
 .find_ur_bank h2 {
+    margin: 0;
     color: #222831;
-    font-size: 36px;
+    font-size: 42px;
     font-style: normal;
     font-weight: 600;
 }
 
 .find_ur_bank h3 {
     color: #393E46;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 400;
 }
 
@@ -508,32 +512,6 @@ main {
     border: #222831;
     background: #FFF;
     margin-top: 20px;
-}
-
-.product img {
-    width: 290px;
-    height: 290px;
-}
-
-.buy {
-    color: white;
-    font-family: Poppins, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    padding: 8px 20px;
-    border-radius: 10px;
-    border: 2px solid #FFF;
-    background: transparent;
-    cursor: pointer;
-    float: right;
-    margin-top: -20px;
-    margin-right: 20px;
-}
-
-.buy:hover {
-    color: #016A70;
-    background-color: white;
 }
 
 

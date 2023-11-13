@@ -1,21 +1,46 @@
 {% extends 'test/base.html' %}
-{% load static %}
-
 
 {% block content %}
-<h1>{{title}}</h1>
+    <div class="block_main">
+        <div class="lets_talk">
+            <h1>Let's Talk</h1>
+            <h4>Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your
+                project and provide help</h4>
+            <h3>Email</h3>
+            <a>iliyassmagulov@gmail.com</a>
+            <div class="social">
+                <h3>Social</h3>
+                <ul>
+                    <li><a>Facebook</a></li>
+                    <li><a>Tiktok</a></li>
+                    <li><a>Instagram</a></li>
+                </ul>
+            </div>
 
-<form method="post">
-    {% csrf_token %}
+        </div>
+        <div class="connect">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-error">{{ .non_field_errors }}</div>
+                <div class="name">
+                    <p>Name</p>
+                    <label class="form-label" for="{{ form.id_for_label }}">{{ form.name }}</label>
+                </div>
+                <div class="email">
+                    <p>Email</p>
+                    <label class="form-label" for="{{ form.id_for_label }}">{{ form.email }}</label>
+                </div>
+                <div class="message_area">
+                    <p>Message</p>
+                    <label class="form-label" for="{{ form.id_for_label }}">{{ form.message }}</label>
+                </div>
+                <div class="submit">
+                    <input type="submit" value="Submit">
+                </div>
+                {% for f in form %}
 
-    <div class="form-error">{{ form.non_field_errors }}</div>
-
-{% for f in form %}
-<p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
-
-{% endfor %}
-
-    <button type="submit">Отправить</button>
-</form>
-
+                {% endfor %}
+            </form>
+        </div>
+    </div>
 {% endblock %}
