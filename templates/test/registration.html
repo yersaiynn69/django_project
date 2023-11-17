@@ -65,6 +65,24 @@
                     In</a></p>
             </div>
         </form>
+        <script>
+        let email = 'get user email from input';
+        let password = 'get user password from input';
+        $.ajax({
+            url: 'localhost:8000/auth/login',
+            type: 'post',
+            contentType: 'json',
+            data: {email, password},
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                localStorage.setItem("token", data.token);
+            },
+            error: function (XHR, status, err) {
+                console.log(err)
+            }
+        })
+</script>
     </div>
     <div style="background-image: url('{% static 'https://www.figma.com/file/XWRMuGoTBc7ZaZaMPEucKj/WASTE-PROCESSING-BY-BEEMA---IL-(Community)?type=design&node-id=1-1733&mode=dev' %}')"
          class="main_block"></div>

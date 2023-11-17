@@ -45,6 +45,9 @@ def index(request):
     return render(request, 'test/index.html', context=context)
 
 
+
+
+
 def home(request):
     return render(request, 'test/index.html', {'title': 'Bang.in'})
 
@@ -74,6 +77,7 @@ def about_us(request):
         'even_posts': even_posts,
     }
     return render(request, 'test/about_us.html', context=context)
+
 
 @login_required()
 def show_post(request, post_slug):
@@ -165,8 +169,8 @@ def logout_user(request):
     return redirect('/')
 
 
+@login_required()
 def contactFormView(request):
-
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -187,4 +191,3 @@ def contactFormView(request):
         template_name='test/contact.html',
         context={"form": form}
     )
-

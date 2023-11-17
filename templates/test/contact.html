@@ -1,6 +1,7 @@
 {% extends 'test/base.html' %}
 
 {% block content %}
+    <body id="contact">
     <div class="block_main">
         <div class="lets_talk">
             <h1>Let's Talk</h1>
@@ -34,13 +35,14 @@
                     <p>Message</p>
                     <label class="form-label" for="{{ form.id_for_label }}">{{ form.message }}</label>
                 </div>
+                <div class="captcha_form">
+                    <label class="form-label" for="{{ form.id_for_label }}">{{ form.captcha }}</label>
+                </div>
                 <div class="submit">
                     <input type="submit" value="Submit">
                 </div>
-                {% for f in form %}
-
-                {% endfor %}
             </form>
         </div>
     </div>
+    </body>
 {% endblock %}

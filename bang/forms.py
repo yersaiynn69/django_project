@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.contrib.auth.models import User, UserManager
-
+from captcha.fields import CaptchaField
 from bang.models import Feedback
 
 
@@ -21,11 +21,11 @@ class LoginUserForm(AuthenticationForm):
 
 
 class ContactForm(forms.ModelForm):
+    name = forms.CharField(label='Имя', max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Search your waste bank here!'}))
+    email = forms.CharField(label='Почта', max_length=255, widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Search your waste bank here!'}))
+    message = forms.CharField(label='Сообщение', widget=forms.Textarea(attrs={'cols': 60, 'rows': 10}))
+    captcha = CaptchaField()
+
     class Meta:
         model = Feedback
-        fields = ('name', 'email', 'message')
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Search your waste bank here!'}),
-            'email': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Search your waste bank here!'}),
-            'message': forms.Textarea(attrs={'cols': 60, 'rows': 10})
-        }
+        fields = ('name', 'email', 'message', 'captcha')

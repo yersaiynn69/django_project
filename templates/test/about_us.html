@@ -3,37 +3,39 @@
 
 
 {% block content %}
-<div class="main">
-    {% for p in posts %}
-    {% if p.pk == 1 %}
-        <div class="block_1">
-            <div class="info">
-                {% if p.photo %}
-                    <img src="{{ p.photo.url }}" alt="product_photo">
+    <body id="about_us">
+        <div class="main">
+            {% for p in posts %}
+                {% if p.pk == 1 %}
+                    <div class="block_1">
+                        <div class="info">
+                            {% if p.photo %}
+                                <img src="{{ p.photo.url }}" alt="product_photo">
+                            {% endif %}
+                            <div class="about_me">
+                                <h3>{{ p.title }}</h3>
+                                <h1>{{ p.description }}</h1>
+                                <h6>{{ p.content }}</h6>
+                            </div>
+                        </div>
+                    </div>
                 {% endif %}
-                <div class="about_me">
-                    <h3>{{ p.title }}</h3>
-                    <h1>{{ p.description }}</h1>
-                    <h6>{{ p.content }}</h6>
-                </div>
-            </div>
+                {% if p.pk == 2 %}
+                    <div class="block_2">
+                        <div class="info_2">
+                            <div class="about_me_2">
+                                <h3>{{ p.title }}</h3>
+                                <h1>{{ p.description }}</h1>
+                                <h6>{{ p.content }}</h6>
+                            </div>
+                            {% if p.photo %}
+                                <img src="{{ p.photo.url }}" alt="product_photo">
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
-    {% endif %}
-    {% if p.pk == 2 %}
-    <div class="block_2">
-        <div class="info_2">
-            <div class="about_me_2">
-                <h3>{{ p.title }}</h3>
-                <h1>{{ p.description }}</h1>
-                <h6>{{ p.content }}</h6>
-            </div>
-            {% if p.photo %}
-                <img src="{{ p.photo.url }}" alt="product_photo">
-            {% endif %}
-        </div>
-    </div>
-    {% endif %}
-    {% endfor %}
-</div>
+    </body>
 {% endblock %}
 
