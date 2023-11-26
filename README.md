@@ -44,6 +44,10 @@
   + Классы представлений: ListView, DetailView, CreateView
   + Mixins - убираем дублирование кода
   + Постраничная навигация (пагинация)
+  + Errors handling
+  + Working with files
+  + Logging
+  + Web-Socket
 
 
 # Еще в процессе
