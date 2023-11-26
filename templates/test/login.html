@@ -2,53 +2,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="{% static 'test/css/login.css' %}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <title>{{ title }}</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'test/css/login.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>{{ title }}</title>
 </head>
 <body>
 
-  <div class="main">
+<div class="main">
     <div class="logo"><a href="http://127.0.0.1:8000"><img src="{% static 'test/img/img.png' %}" alt="logo"></a></div>
-      <div class="login">
-          <p class="login_title">Login</p>
-          <form method="post" class="login_form">
-              {% csrf_token %}
-                   <div class="rest">
-                        <p class="p_register">Email</p>
-                        <label class="form-label" for="{{ form.id_for_label }}">{{ form.username}} </label>
-                   </div>
-                   <div class="password">
-                           <p class="p_register">Password</p>
-                           <label class="form-label" for="{{ form.id_for_label }}">{{ form.password }}</label>
-                   </div>
-                   <div class="reset">
-                           <a href="{% url 'password_reset' %}">Forget password?</a>
-                   </div>
-                   <div class="form-error">{{ form.non_field_errors }}</div>
-                   <div class="submit">
-                              <input type="submit" value="Login">
-                   </div>
-                  <div><p id="item_0" class="text-object item">OR</p></div>
-                  <div class="sign_up">
-                    <div class="with_google">
-                       <a href="{% url "social:begin" "google-oauth2" %}"><img src="{% static '/test/img/Group%20133547.svg' %}"></a>
-                    </div>
-                    <div class="with_facebook">
-                      <img src="{% static '/test/img/Group%20133548.svg' %}">
-                    </div>
-                  </div>
-                  <div class="have_acc" action=" ">
-                    <span class="have_account">New user?<a class="registr" href="http://127.0.0.1:8000/register/">Registration</a></span>
-                  </div>
-          </form>
-      </div>
-     <div class="main_block"></div>
+    <div class="login">
+        <p class="login_title">Login</p>
+        <form method="post" class="login_form">
+            {% csrf_token %}
+            <div class="rest">
+                <p class="p_register">Email</p>
+                <label class="form-label" for="{{ form.id_for_label }}">{{ form.username }} </label>
+            </div>
+            <div class="password">
+                <p class="p_register">Password</p>
+                <label class="form-label" for="{{ form.id_for_label }}">{{ form.password }}</label>
+            </div>
+            <div class="reset">
+                <a href="{% url 'password_reset' %}">Forget password?</a>
+            </div>
+            <div class="form-error">{{ form.non_field_errors }}</div>
+            <div class="submit">
+                <input type="submit" value="Login">
+            </div>
+            <div><p id="item_0" class="text-object item">OR</p></div>
+            <div class="sign_up">
+                <div class="with_google">
+                    <a href="{% url "social:begin" "google-oauth2" %}"><img
+                            src="{% static '/test/img/Group%20133547.svg' %}"></a>
+                </div>
+                <div class="with_facebook">
+                    <img src="{% static '/test/img/Group%20133548.svg' %}">
+                </div>
+            </div>
+            <div class="have_acc">
+                <span class="have_account">New user?<a class="registr" href="http://127.0.0.1:8000/register/">Registration</a></span>
+            </div>
+            <script src='https://www.google.com/recaptcha/api.js'></script>
+            <div class="g-recaptcha" data-sitekey="6LfQiRMpAAAAAIqi8-WXzvx94naUEbGGNoUgiwCH"></div>
+        </form>
+    </div>
+    <div class="main_block"></div>
 
-  </div>
+</div>
 
 </body>
 </html>

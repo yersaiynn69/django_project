@@ -42,8 +42,9 @@
 .about_me h6 {
     color: #FFF;
     text-align: justify;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
+    line-height: normal;
 }
 
 .block_2 {
@@ -86,7 +87,7 @@
 
 .about_me_2 h6 {
     text-align: justify;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
     line-height: normal;
 }

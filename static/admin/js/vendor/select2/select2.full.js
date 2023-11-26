@@ -757,7 +757,7 @@ S2.define('select2/utils',[
 
   // Append an array of jQuery nodes to a given element.
   Utils.appendMany = function ($element, $nodes) {
-    // jQuery 1.7.x does not support $.fn.append() with an array
+    // jQuery 1.7.x does not chat $.fn.append() with an array
     // Fall back to a jQuery object collection using $.fn.add()
     if ($.fn.jquery.substr(0, 3) === '1.7') {
       var $jqNodes = $();
@@ -2083,8 +2083,8 @@ S2.define('select2/selection/search',[
     var msie = document.documentMode;
     var disableInputEvents = msie && msie <= 11;
 
-    // Workaround for browsers which do not support the `input` event
-    // This will prevent double-triggering of events for browsers which support
+    // Workaround for browsers which do not chat the `input` event
+    // This will prevent double-triggering of events for browsers which chat
     // both the `keyup` and `input` events.
     this.$selection.on(
       'input.searchcheck',
@@ -4108,8 +4108,8 @@ S2.define('select2/dropdown/search',[
       self._keyUpPrevented = evt.isDefaultPrevented();
     });
 
-    // Workaround for browsers which do not support the `input` event
-    // This will prevent double-triggering of events for browsers which support
+    // Workaround for browsers which do not chat the `input` event
+    // This will prevent double-triggering of events for browsers which chat
     // both the `keyup` and `input` events.
     this.$search.on('input', function (evt) {
       // Unbind the duplicated `keyup` event
@@ -5283,7 +5283,7 @@ S2.define('select2/options',[
       if (this.options.debug && window.console && console.warn) {
         console.warn(
           'Select2: The `data-ajax-url` attribute has been changed to ' +
-          '`data-ajax--url` and support for the old attribute will be removed' +
+          '`data-ajax--url` and chat for the old attribute will be removed' +
           ' in future versions of Select2.'
         );
       }

@@ -9,7 +9,7 @@
             URLifies and shortens the string.
             dependencies - array of dependent fields ids
             maxLength - maximum length of the URLify'd string
-            allowUnicode - Unicode support of the URLify'd string
+            allowUnicode - Unicode chat of the URLify'd string
         */
         return this.each(function() {
             const prepopulatedField = $(this);

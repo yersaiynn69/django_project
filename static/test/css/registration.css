@@ -1,9 +1,4 @@
-{
-%
-load
-static
-%
-}
+
 
 * {
     margin: 0;
@@ -38,7 +33,7 @@ static
     float: left;
 }
 
-.registartion {
+.registration {
     z-index: 11;
     position: relative;
     display: grid;
@@ -47,7 +42,7 @@ static
 
 }
 
-.registartion_title {
+.registration_title {
 
     margin-top: 40px;
     text-align: center;

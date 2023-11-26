@@ -1,0 +1,16 @@
+{% extends 'test/base.html' %}
+
+{% block content %}
+    <body id="service">
+    <div class="main-block">
+        {% if article.photo %}
+            <img class="product_img" src="{{ article.photo.url }}">
+        {% endif %}
+        <div class="product_descrription">
+            <h1>{{ article.title }}</h1>
+            <h3>{{ article.content }}</h3>
+            <h1>{{ article.time_create }}</h1>
+        </div>
+    </div>
+    </body>
+{% endblock %}

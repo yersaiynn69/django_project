@@ -45,7 +45,6 @@
                             <img src="{{ user.avatar }}">
                             <div class="dropdown-content">
                                 <a class="user" href="{% url 'setting' %}">Profile</a>
-                                <a href="#">Notifications</a>
                                 <a class="logout"
                                    href="{% url 'logout' %}?next={{ request.path | urlencode }}">Logout</a>
                             </div>
@@ -60,6 +59,80 @@
                 {% endif %}
             </div>
         </nav>
+
+        {% if request.user.is_authenticated %}
+            <style>
+                #chat-container {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    background-color: #fff;
+                    padding: 10px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                    display: none;
+                }
+
+                #chat-toggle {
+                    position: fixed;
+                    bottom: 10px;
+                    right: 10px;
+                    background-color: #007bff;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+            </style>
+            <div id="chat-container" style="display: none;">
+                <!-- Your chat interface content goes here -->
+                <form id="chat-form">
+                    <input type="text" id="message-input" placeholder="Type your message">
+                    <button type="submit">Send</button>
+                </form>
+                <div id="chat-messages"></div>
+            </div>
+            <button id="chat-toggle">Open Chat</button>
+            <script>
+                function generateRandomString(length) {
+                    var result = '';
+                    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                    for (var i = 0; i < length; i++) {
+                        result += characters.charAt(Math.floor(Math.random() * characters.length));
+                    }
+                    return result;
+                }
+
+                document.getElementById('chat-toggle').addEventListener('click', function () {
+                    // Generate a random string of length 6 (adjust as needed)
+                    var randomString = generateRandomString(6);
+
+                    // Construct the new chat URL with the random string
+                    var newChatUrl = 'http://127.0.0.1:8000/chat/' + randomString;
+
+                    // Redirect to the new chat URL
+                    window.location.href = newChatUrl;
+                });
+                // The rest of your code for handling chat interactions
+                document.getElementById('chat-form').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var messageInput = document.getElementById('message-input');
+                    var chatMessages = document.getElementById('chat-messages');
+
+                    // Process and send the message to the server (you may need AJAX or WebSocket for this).
+
+                    // For demonstration purposes, just display the message in the chat container.
+                    var newMessage = document.createElement('div');
+                    newMessage.textContent = messageInput.value;
+                    chatMessages.appendChild(newMessage);
+
+                    // Clear the input field
+                    messageInput.value = '';
+                });
+            </script>
+        {% endif %}
     </header>
     {#        <div class="message">#}
     {#            {% if messages %}#}
@@ -152,7 +225,6 @@
 {% endblock footer %}
 
 <script src="../../static/test/js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="../../static/test/js/plugins.js"></script>
 <script src="../../static/test/js/main.js"></script>
 
 

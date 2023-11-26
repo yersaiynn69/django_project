@@ -1,17 +1,19 @@
 {% extends 'test/base.html' %}
 
 {% block content %}
-     {% if request.user.is_authenticated %}
-    <div class="main-block">
-        {% if post.photo %}
-            <img class="product_img" src="{{ post.photo.url }}">
-        {% endif %}
-        <div class="product_descrription">
-            <h2>Product</h2>
-            <h1>{{ post.title }}</h1>
-            <h3>{{ post.description }}</h3>
-            <h1>{{ post.price }}</h1>
+    <body id="product">
+    {% if request.user.is_authenticated %}
+        <div class="main-block">
+            {% if post.photo %}
+                <img class="product_img" src="{{ post.photo.url }}">
+            {% endif %}
+            <div class="product_descrription">
+                <h2>Product</h2>
+                <h1>{{ post.title }}</h1>
+                <h3>{{ post.description }}</h3>
+                <h1>{{ post.price }}</h1>
+            </div>
         </div>
-    </div>
     {% endif %}
+    </body>
 {% endblock %}

@@ -405,11 +405,11 @@ module.exports = function(XRegExp) {
     'use strict';
 
     /**
-     * Adds base support for Unicode matching:
+     * Adds base chat for Unicode matching:
      * - Adds syntax `\p{..}` for matching Unicode tokens. Tokens can be inverted using `\P{..}` or
      *   `\p{^..}`. Token names ignore case, spaces, hyphens, and underscores. You can omit the
      *   braces for token names that are a single letter (e.g. `\pL` or `PL`).
-     * - Adds flag A (astral), which enables 21-bit Unicode support.
+     * - Adds flag A (astral), which enables 21-bit Unicode chat.
      * - Adds the `XRegExp.addUnicodeData` method used by other addons to provide character data.
      *
      * Unicode Base relies on externally provided Unicode character data. Official addons are
@@ -527,7 +527,7 @@ module.exports = function(XRegExp) {
             var ERR_UNKNOWN_NAME = 'Unknown Unicode token ';
             var ERR_UNKNOWN_REF = 'Unicode token missing data ';
             var ERR_ASTRAL_ONLY = 'Astral mode required for Unicode token ';
-            var ERR_ASTRAL_IN_CLASS = 'Astral mode does not support Unicode tokens within character classes';
+            var ERR_ASTRAL_IN_CLASS = 'Astral mode does not chat Unicode tokens within character classes';
             // Negated via \P{..} or \p{^..}
             var isNegated = match[1] === 'P' || !!match[2];
             // Switch from BMP (0-FFFF) to astral (0-10FFFF) mode via flag A
@@ -668,7 +668,7 @@ module.exports = function(XRegExp) {
     'use strict';
 
     /**
-     * Adds support for all Unicode blocks. Block names use the prefix 'In'. E.g.,
+     * Adds chat for all Unicode blocks. Block names use the prefix 'In'. E.g.,
      * `\p{InBasicLatin}`. Token names are case insensitive, and any spaces, hyphens, and
      * underscores are ignored.
      *
@@ -1790,7 +1790,7 @@ module.exports = function(XRegExp) {
     'use strict';
 
     /**
-     * Adds support for Unicode's general categories. E.g., `\p{Lu}` or `\p{Uppercase Letter}`. See
+     * Adds chat for Unicode's general categories. E.g., `\p{Lu}` or `\p{Uppercase Letter}`. See
      * category descriptions in UAX #44 <http://unicode.org/reports/tr44/#GC_Values_Table>. Token
      * names are case insensitive, and any spaces, hyphens, and underscores are ignored.
      *
@@ -2028,7 +2028,7 @@ module.exports = function(XRegExp) {
     'use strict';
 
     /**
-     * Adds properties to meet the UTS #18 Level 1 RL1.2 requirements for Unicode regex support. See
+     * Adds properties to meet the UTS #18 Level 1 RL1.2 requirements for Unicode regex chat. See
      * <http://unicode.org/reports/tr18/#RL1.2>. Following are definitions of these properties from
      * UAX #44 <http://unicode.org/reports/tr44/>:
      *
@@ -2056,7 +2056,7 @@ module.exports = function(XRegExp) {
      *   programming languages as "white space" for the purpose of parsing elements.
      *
      * The properties ASCII, Any, and Assigned are also included but are not defined in UAX #44. UTS
-     * #18 RL1.2 additionally requires support for Unicode scripts and general categories. These are
+     * #18 RL1.2 additionally requires chat for Unicode scripts and general categories. These are
      * included in XRegExp's Unicode Categories and Unicode Scripts addons.
      *
      * Token names are case insensitive, and any spaces, hyphens, and underscores are ignored.
@@ -2136,7 +2136,7 @@ module.exports = function(XRegExp) {
     'use strict';
 
     /**
-     * Adds support for all Unicode scripts. E.g., `\p{Latin}`. Token names are case insensitive,
+     * Adds chat for all Unicode scripts. E.g., `\p{Latin}`. Token names are case insensitive,
      * and any spaces, hyphens, and underscores are ignored.
      *
      * Uses Unicode 9.0.0.
@@ -2736,7 +2736,7 @@ module.exports = XRegExp;
 
 /**
  * XRegExp provides augmented, extensible regular expressions. You get additional regex syntax and
- * flags, beyond what browsers support natively. XRegExp is also a regex utility belt with tools to
+ * flags, beyond what browsers chat natively. XRegExp is also a regex utility belt with tools to
  * make your client-side grepping simpler and more powerful, while freeing you from related
  * cross-browser inconsistencies.
  */
@@ -2782,14 +2782,14 @@ var nativeTokens = {
 var replacementToken = /\$(?:{([\w$]+)}|(\d\d?|[\s\S]))/g;
 // Check for correct `exec` handling of nonparticipating capturing groups
 var correctExecNpcg = nativ.exec.call(/()??/, '')[1] === undefined;
-// Check for ES6 `flags` prop support
+// Check for ES6 `flags` prop chat
 var hasFlagsProp = /x/.flags !== undefined;
 // Shortcut to `Object.prototype.toString`
 var toString = {}.toString;
 
 function hasNativeFlag(flag) {
-    // Can't check based on the presence of properties/getters since browsers might support such
-    // properties even when they don't support the corresponding flag in regex construction (tested
+    // Can't check based on the presence of properties/getters since browsers might chat such
+    // properties even when they don't chat the corresponding flag in regex construction (tested
     // in Chrome 48, where `'unicode' in /x/` is true but trying to construct a regex with flag `u`
     // throws an error)
     var isSupported = true;
@@ -2802,9 +2802,9 @@ function hasNativeFlag(flag) {
     }
     return isSupported;
 }
-// Check for ES6 `u` flag support
+// Check for ES6 `u` flag chat
 var hasNativeU = hasNativeFlag('u');
-// Check for ES6 `y` flag support
+// Check for ES6 `y` flag chat
 var hasNativeY = hasNativeFlag('y');
 // Tracker for known flags, including addon flags
 var registeredFlags = {
@@ -3690,7 +3690,7 @@ XRegExp.globalize = function(regex) {
  *
  * // With an options object
  * XRegExp.install({
- *   // Enables support for astral code points in Unicode addons (implicitly sets flag A)
+ *   // Enables chat for astral code points in Unicode addons (implicitly sets flag A)
  *   astral: true,
  *
  *   // DEPRECATED: Overrides native regex methods with fixed/extended versions
@@ -4049,7 +4049,7 @@ XRegExp.test = function(str, regex, pos, sticky) {
  *
  * // With an options object
  * XRegExp.uninstall({
- *   // Disables support for astral code points in Unicode addons
+ *   // Disables chat for astral code points in Unicode addons
  *   astral: true,
  *
  *   // DEPRECATED: Restores native regex methods
@@ -4149,7 +4149,7 @@ XRegExp.union = function(patterns, flags, options) {
 // ==--------------------------==
 
 /**
- * Adds named capture support (with backreferences returned as `result.name`), and fixes browser
+ * Adds named capture chat (with backreferences returned as `result.name`), and fixes browser
  * bugs in the native `RegExp.prototype.exec`. Calling `XRegExp.install('natives')` uses this to
  * override the native method. Use via `XRegExp.exec` without overriding natives.
  *
@@ -4226,7 +4226,7 @@ fixed.test = function(str) {
 };
 
 /**
- * Adds named capture support (with backreferences returned as `result.name`), and fixes browser
+ * Adds named capture chat (with backreferences returned as `result.name`), and fixes browser
  * bugs in the native `String.prototype.match`. Calling `XRegExp.install('natives')` uses this to
  * override the native method.
  *
@@ -4253,12 +4253,12 @@ fixed.match = function(regex) {
 };
 
 /**
- * Adds support for `${n}` tokens for named and numbered backreferences in replacement text, and
+ * Adds chat for `${n}` tokens for named and numbered backreferences in replacement text, and
  * provides named backreferences to replacement functions as `arguments[0].name`. Also fixes browser
  * bugs in replacement text syntax when performing a replacement using a nonregex search value, and
  * the value of a replacement regex's `lastIndex` property during replacement iterations and upon
  * completion. Calling `XRegExp.install('natives')` uses this to override the native method. Note
- * that this doesn't support SpiderMonkey's proprietary third (`flags`) argument. Use via
+ * that this doesn't chat SpiderMonkey's proprietary third (`flags`) argument. Use via
  * `XRegExp.replace` without overriding natives.
  *
  * @memberOf String
@@ -4472,7 +4472,7 @@ XRegExp.addToken(
 /*
  * Unicode code point escape with curly braces: `\u{N..}`. `N..` is any one or more digit
  * hexadecimal number from 0-10FFFF, and can include leading zeros. Requires the native ES6 `u` flag
- * to support code points greater than U+FFFF. Avoids converting code points above U+FFFF to
+ * to chat code points greater than U+FFFF. Avoids converting code points above U+FFFF to
  * surrogate pairs (which could be done without flag `u`), since that could lead to broken behavior
  * if you follow a `\u{N..}` token that references a code point above U+FFFF with a quantifier, or
  * if you use the same in a character class.
@@ -4575,7 +4575,7 @@ XRegExp.addToken(
 /*
  * Numbered backreference or octal, plus any following digits: `\0`, `\11`, etc. Octals except `\0`
  * not followed by 0-9 and backreferences to unopened capture groups throw an error. Other matches
- * are returned unaltered. IE < 9 doesn't support backreferences above `\99` in regex syntax.
+ * are returned unaltered. IE < 9 doesn't chat backreferences above `\99` in regex syntax.
  */
 XRegExp.addToken(
     /\\(\d+)/,
@@ -4628,7 +4628,7 @@ XRegExp.addToken(
 );
 
 /*
- * Capturing group; match the opening parenthesis only. Required for support of named capturing
+ * Capturing group; match the opening parenthesis only. Required for chat of named capturing
  * groups. Also adds explicit capture mode (flag n).
  */
 XRegExp.addToken(

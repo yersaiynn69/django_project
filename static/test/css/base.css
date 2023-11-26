@@ -17,12 +17,49 @@ body {
 
 }
 
+#service:hover,
+#service #service {
+    display: inline-block;
+    border-bottom: 3px solid #FFFFFF;
+    text-decoration: none;
+    color: #016A70;
+    font-weight: 900;
+}
+
+#about_us:hover,
+#about_us #about_us {
+    display: inline-block;
+    border-bottom: 3px solid #FFFFFF;
+    text-decoration: none;
+    color: #016A70;
+    font-weight: 900;
+}
+
+#contact:hover,
+#contact #contact {
+    display: inline-block;
+    border-bottom: 3px solid #FFFFFF;
+    text-decoration: none;
+    color: #016A70;
+    font-weight: 900;
+}
+
+#product:hover,
+#product #product {
+    display: inline-block;
+    border-bottom: 3px solid #FFFFFF;
+    text-decoration: none;
+    color: #016A70;
+    font-weight: 900;
+}
+
+
 header {
     height: 150px;
     width: 100%;
     background: #016A70;
     display: flex;
-
+    flex-direction: flex;
 }
 
 .header__logo {
@@ -53,18 +90,13 @@ nav {
 
 }
 
-.navbar_:hover {
-    display: inline-block;
-    border-bottom: 3px solid #FFFFFF;
-    text-decoration: none;
-}
-
 
 .navbar a {
     font-size: 15px;
     color: #393E46;
     text-decoration: none;
     margin: 0 40px;
+
 }
 
 
