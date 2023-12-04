@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'test/css/registration.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication_static/css/registration.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <title>Registration</title>
@@ -54,10 +54,10 @@
             <div class="sign_up">
                 <div class="with_google">
                     <a href="{% url "social:begin" "google-oauth2" %}"><img
-                            src="{% static '/test/img/Group%20133547.svg' %}"></a>
+                            src="{% static '/authentication_static/img/Group 133547.svg' %}"></a>
                 </div>
                 <div class="with_facebook">
-                    <img src="../../static/test/img/Group%20133548.svg">
+                    <img src="{% static '/authentication_static/img/Group 133548.svg' %}">
                 </div>
             </div>
             <div class="have_acc">

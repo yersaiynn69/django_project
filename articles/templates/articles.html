@@ -1,16 +1,21 @@
 {% extends 'test/base.html' %}
+{% load static %}
 
 {% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'articles_static/css/articles.css' %}">
+    </head>
     <body id="service">
-    <div class="main-block">
-        {% if article.photo %}
-            <img class="product_img" src="{{ article.photo.url }}">
-        {% endif %}
-        <div class="product_descrription">
+    <div class="article-main-block">
+        <div class="article_product_description">
             <h1>{{ article.title }}</h1>
             <h3>{{ article.content }}</h3>
-            <h1>{{ article.time_create }}</h1>
+            <h2>{{ article.time_create }}</h2>
         </div>
+        {% if article.photo %}
+            <img class="article-product_img" src="{{ article.photo.url }}">
+        {% endif %}
+
     </div>
     </body>
 {% endblock %}

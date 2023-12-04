@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'test/css/login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication_static/css/login.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -36,14 +36,14 @@
             <div class="sign_up">
                 <div class="with_google">
                     <a href="{% url "social:begin" "google-oauth2" %}"><img
-                            src="{% static '/test/img/Group%20133547.svg' %}"></a>
+                            src="{% static '/authentication_static/img/Group 133547.svg' %}"></a>
                 </div>
                 <div class="with_facebook">
-                    <img src="{% static '/test/img/Group%20133548.svg' %}">
+                    <img src="{% static '/authentication_static/img/Group 133548.svg' %}">
                 </div>
             </div>
             <div class="have_acc">
-                <span class="have_account">New user?<a class="registr" href="http://127.0.0.1:8000/register/">Registration</a></span>
+                <span class="have_account">New user? <a class="registr" href="http://127.0.0.1:8000/register/">Registration</a></span>
             </div>
             <script src='https://www.google.com/recaptcha/api.js'></script>
             <div class="g-recaptcha" data-sitekey="6LfQiRMpAAAAAIqi8-WXzvx94naUEbGGNoUgiwCH"></div>

@@ -3,6 +3,9 @@
 
 
 {% block content %}
+     <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'articles_static/css/service.css' %}">
+    </head>
     <body id="service">
         <div class="main">
             <div class="info_block_1">
@@ -44,7 +47,7 @@
                         <div class="descript">
                             <h2>{{ p.title }}</h2>
                             {% autoescape on %}
-                                <h3>{{ p.content|linebreaks|truncatewords:80 }}</h3>
+                                <h3>{{ p.content|linebreaks|truncatewords:70 }}</h3>
                             {% endautoescape %}
                             <div class="article-panel">
                                 <h4 class="last">Date: {{ p.time_update|date:"d-m-Y H:i" }}</h4>

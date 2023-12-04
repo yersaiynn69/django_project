@@ -12,7 +12,7 @@ from bang.utils import grecaptcha_verify
 # Login
 
 class LoginUser(LoginView, BaseView):
-    template_name = 'test/login.html'
+    template_name = 'login.html'
     form_class = LoginUserForm
     success_url = 'home'
 
@@ -37,7 +37,7 @@ class LoginUser(LoginView, BaseView):
 # Registration
 class RegisterUser(FormView, BaseView):
     form_class = RegisterUserForm
-    template_name = 'test/registration.html'
+    template_name = 'registration.html'
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):
