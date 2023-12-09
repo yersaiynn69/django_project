@@ -1,16 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView
-from django.urls import reverse_lazy
-from django.views.generic import FormView
 import logging
-from .decorators import user_not_authenticated, base_view, BaseView
+from .decorators import base_view
 from .forms import *
 from .models import Product, AboutMe
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import logout
 from django.contrib import messages
-
-from .utils import grecaptcha_verify
 
 logger = logging.getLogger(__name__)
 
@@ -21,12 +15,15 @@ menu = [{'title': "Catalog", 'url_name': 'catalog'},
         {'title': "Contact", 'url_name': 'contact'},
         ]
 
+
 # Mixin
 class DataMixin:
-    def get_user_context(self, **kwargs):
+    @staticmethod
+    def get_user_context(**kwargs):
         context = kwargs
         context['menu'] = menu
         return context
+
 
 # Function to return main page
 def index(request):
@@ -43,9 +40,8 @@ def index(request):
 def home(request):
     return render(request, 'test/index.html', {'title': 'Bang.in'})
 
+
 # Function to return Service page
-def service(request):
-    return render(request, 'test/../articles/templates/service.html', {'title': 'Service'})
 
 # Function to return Product page
 def product(request):
@@ -56,6 +52,7 @@ def product(request):
         'title': 'Catalog',
     }
     return render(request, 'test/catalog.html', context=context)
+
 
 # Function to return Info About us page
 def about_us(request):
@@ -70,24 +67,39 @@ def about_us(request):
     }
     return render(request, 'test/about_us.html', context=context)
 
+
 # Function to show the post
 @login_required()
 def show_post(request, post_slug):
     post = get_object_or_404(Product, slug=post_slug)
+    if request.method == "POST":
+        form = PayForm(request.POST)
+        if form.is_valid():
+                payment = form.save(commit=False)
+                payment.save()
+                print(form.cleaned_data)
+                return redirect('home')
+
+        else:
+            for error in list(form.errors.values()):
+                messages.error(request, error, f'Something is wrong!')
+    else:
+        form = PayForm()
 
     context = {
+        'form': form,
         'post': post,
         'menu': menu,
         'title': post.title,
     }
     return render(request, 'test/post.html', context=context)
 
+
 # Function to return settings page
 @login_required()
 def setting(request):
     return render(request, 'test/setting.html', {'title': 'Settings'})
 
-# Login
 
 # Feedback function
 @base_view

@@ -11,17 +11,6 @@
     height: 920px;
 }
 
-.main_block {
-    z-index: -9;
-    height: 100%;
-    width: 850px;
-    background-image: url('{% static "https://www.figma.com/file/XWRMuGoTBc7ZaZaMPEucKj/WASTE-PROCESSING-BY-BEEMA---IL-(Community)?type=design&node-id=1-1733&mode=dev" %}');
-    background-repeat: no-repeat;
-    margin-left: -220px;
-    background-size: 90%;
-    background-position: 0px 220px;
-}
-
 
 .logo img {
     z-index: 10;
@@ -37,7 +26,7 @@
     z-index: 11;
     position: relative;
     display: grid;
-    float: right;
+    justify-content: center;
     margin-right: 100px;
 
 }

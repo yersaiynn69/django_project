@@ -10,16 +10,6 @@
     height: 802px;
 }
 
-.main_block {
-    z-index: -9;
-    height: 100%;
-    width: 850px;
-    background-image: url('Component1.svg');
-    background-repeat: no-repeat;
-    margin-left: -220px;
-    background-size: 90%;
-    background-position: 0px 220px;
-}
 
 
 .logo img {
@@ -36,7 +26,7 @@
     z-index: 11;
     position: relative;
     display: grid;
-    float: right;
+    justify-content: center;
     margin-right: 100px;
 
 }

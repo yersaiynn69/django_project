@@ -22,7 +22,7 @@
         <div class="connect">
             <form method="post">
                 {% csrf_token %}
-                <div class="form-error">{{ .non_field_errors }}</div>
+                <div class="form-error">{{ form.non_field_errors }}</div>
                 <div class="name">
                     <p>Name</p>
                     <label class="form-label" for="{{ form.id_for_label }}">{{ form.name }}</label>

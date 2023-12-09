@@ -1,0 +1,98 @@
+
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 250px;
+    margin-right: 250px;
+
+}
+
+.products img {
+    height: 80%;
+}
+
+.product{
+    margin-bottom: 30px;
+}
+
+.product_name {
+    width: 290px;
+    height: 75px;
+    background: #016A70;
+    border-radius: 0 0 20px 20px;
+}
+
+
+.selling p {
+    color: #222831;
+    font-family: Poppins, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+}
+
+.selling h2 {
+    text-align: center;
+    color: #222831;
+    font-family: Poppins, sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+
+}
+
+.product_name {
+    color: #FFF;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    line-height: normal;
+
+}
+
+.product_name h4 {
+    font-size: 18px;
+    font-weight: 600;
+    float: left;
+    width: 250px;
+    margin-left: 20px;
+    margin-top: 2px;
+}
+
+.product_name h5 {
+    font-size: 13px;
+    font-weight: 200;
+    float: left;
+    margin-left: 20px;
+    margin-top: -10px;
+
+}
+
+
+.product img {
+    width: 290px;
+    height: 290px;
+}
+
+.buy {
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    background: transparent;
+    cursor: pointer;
+    float: right;
+    margin-top: -22px;
+    margin-right: 20px;
+}
+
+.buy:hover {
+    color: #016A70;
+    background-color: white;
+}

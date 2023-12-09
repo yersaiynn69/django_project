@@ -8,13 +8,58 @@
             {% if post.photo %}
                 <img class="product_img" src="{{ post.photo.url }}">
             {% endif %}
-            <div class="product_descrription">
+            <div class="products_description">
                 <h2>Product</h2>
                 <h1>{{ post.title }}</h1>
                 <h3>{{ post.description }}</h3>
                 <h1>{{ post.price }}</h1>
             </div>
         </div>
+        <form method="post">
+            <div class="payment">
+                {% csrf_token %}
+                <div class="payment_data">
+                    <p>Input your name</p>
+                    <label class="form-label" for="{{ form.id_for_label }}">{{ form.name }}</label>
+                    <p>Input your addess</p>
+                    <label class="form-label" style="resize: none"
+                           for="{{ form.id_for_label }}">{{ form.address }}</label>
+                    <p>Input your phone number</p>
+                    <label id="phoneInput" class="form-label"
+                           for="{{ form.id_for_label }}">{{ form.phone_number }}</label>
+                </div>
+                <div class="payment_method">
+                    <p>Code Voucher</p>
+                    <label class="form-label" for="{{ form.id_for_label }}">{{ form.code }}</label>
+                    <p>Payment</p>
+                    <div class="banks">
+                        <img src="../../static/test/img/Indonesia.svg">
+                        <img src="../../static/test/img/Indonesia 1.svg">
+                        <img src="../../static/test/img/Indonesia (1).svg">
+                        <img src="../../static/test/img/Indonesia (2).svg">
+                        <img src="../../static/test/img/Indonesia (3).svg">
+                        <img src="../../static/test/img/Indonesia (4).svg">
+                        <img src="../../static/test/img/Indonesia (5).svg">
+                        <img src="../../static/test/img/Indonesia (6).svg">
+                        <img src="../../static/test/img/Indonesia.png">
+                        <img src="../../static/test/img/Indonesia (7).svg">
+                        <img src="../../static/test/img/Indonesia (8).svg">
+                    </div>
+                    <p class="total">Total: </p>
+                    <h2 id="total_payment">{{ post.price }}</h2>
+                    <div class="buttons">
+                        <div>
+                            <a href="http://127.0.0.1:8000/product/" class="Cancel">Cancel</a>
+                        </div>
+                        <div>
+                            <input class="check_out" type="submit" value="Check Out">
+                        </div>
+                    </div>
+                    <div class="form-error">{{ form.non_field_errors }}</div>
+                </div>
+            </div>
+        </form>
     {% endif %}
     </body>
 {% endblock %}
+

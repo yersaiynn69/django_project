@@ -19,7 +19,11 @@ class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'time_create', 'message')
     search_fields = ('name',)
 
+class PayAdmin(admin.ModelAdmin):
+    list_display = ('name', 'address', 'phone_number', 'time_create')
+    search_fields = ('time_create',)
 
+admin.site.register(Pay,PayAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.register(AboutMe,AboutMeAdmin)
 admin.site.register(Feedback,FeedbackAdmin)

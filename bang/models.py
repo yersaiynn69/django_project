@@ -5,6 +5,7 @@ from django.db import models
 from django.urls import reverse
 
 
+
 class Product(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     description = models.CharField(max_length=255, verbose_name='Описание')
@@ -51,4 +52,17 @@ class Feedback(models.Model):
     class Meta:
         verbose_name = 'Обратная связь'
         verbose_name_plural = 'Обратная связь'
+        ordering = ['time_create']
+
+
+class Pay(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Имя')
+    address = models.CharField(max_length=100, verbose_name='Адрес')
+    phone_number = models.TextField(blank=True, verbose_name='Номер телефона')
+    code = models.DateTimeField(auto_now_add=True, verbose_name='Код')
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+
+    class Meta:
+        verbose_name = 'Оплата'
+        verbose_name_plural = 'Оплата'
         ordering = ['time_create']
