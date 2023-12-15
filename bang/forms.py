@@ -19,7 +19,7 @@ class FeedbackForm(forms.ModelForm):
 
 
 class PayForm(forms.ModelForm):
-    name = forms.CharField(label='Имя', max_length=255, widget=forms.TextInput(
+    username = forms.CharField(label='Имя', max_length=255, widget=forms.TextInput(
         attrs={'class': 'form-input', 'style': 'text-transform: uppercase;'}))
     phone_number = forms.CharField(initial='+7', label='Почта', max_length=12, widget=forms.TextInput(attrs={'pattern': '^[+]?[0-9]+$','title': 'Enter phone number (only numbers and + symbol are allowed)','class': 'form-input'}))
     address = forms.CharField(label='Сообщение', widget=forms.Textarea(

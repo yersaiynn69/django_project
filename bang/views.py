@@ -9,20 +9,12 @@ from django.contrib import messages
 logger = logging.getLogger(__name__)
 
 # Navigation bar content
-menu = [{'title': "Catalog", 'url_name': 'catalog'},
-        {'title': "Service", 'url_name': 'service'},
-        {'title': "Product", 'url_name': 'product'},
-        {'title': "Contact", 'url_name': 'contact'},
-        ]
-
-
-# Mixin
-class DataMixin:
-    @staticmethod
-    def get_user_context(**kwargs):
-        context = kwargs
-        context['menu'] = menu
-        return context
+menu = [
+    {'title': "Catalog", 'url_name': 'catalog'},
+    {'title': "Service", 'url_name': 'service'},
+    {'title': "Product", 'url_name': 'product'},
+    {'title': "Contact", 'url_name': 'contact'},
+]
 
 
 # Function to return main page
@@ -75,10 +67,10 @@ def show_post(request, post_slug):
     if request.method == "POST":
         form = PayForm(request.POST)
         if form.is_valid():
-                payment = form.save(commit=False)
-                payment.save()
-                print(form.cleaned_data)
-                return redirect('home')
+            payment = form.save(commit=False)
+            payment.save()
+            print(form.cleaned_data)
+            return redirect('home')
 
         else:
             for error in list(form.errors.values()):
@@ -104,7 +96,7 @@ def setting(request):
 # Feedback function
 @base_view
 @login_required()
-def contactFormView(request):
+def contact_formview(request):
     try:
         if request.method == "POST":
             form = FeedbackForm(request.POST)
