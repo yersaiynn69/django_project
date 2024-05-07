@@ -30,4 +30,4 @@ class PayForm(forms.ModelForm):
 
     class Meta:
         model = Pay
-        fields = ('name', 'address', 'phone_number')
+        fields = ('username', 'address', 'phone_number')

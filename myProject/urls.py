@@ -14,6 +14,7 @@ urlpatterns = [
     path('', include('articles.urls')),
     path('', include('chat.urls')),
     path('', include('authentication.urls')),
+    path('',include('about_us.urls')),
     path('captcha/', include('captcha.urls')),
     re_path('', include('social_django.urls', namespace='social')),
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),

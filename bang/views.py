@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 import logging
 from .decorators import base_view
 from .forms import *
-from .models import Product, AboutMe
+from .models import Product
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 # Navigation bar content
 menu = [
     {'title': "Catalog", 'url_name': 'catalog'},
-    {'title': "Service", 'url_name': 'service'},
+    {'title': "Service", 'url_name': 'articles'},
     {'title': "Product", 'url_name': 'product'},
     {'title': "Contact", 'url_name': 'contact'},
 ]
@@ -46,20 +46,6 @@ def product(request):
     return render(request, 'test/catalog.html', context=context)
 
 
-# Function to return Info About us page
-def about_us(request):
-    posts = AboutMe.objects.all()
-    odd_posts = posts[0::2]
-    even_posts = posts[1::2]
-    context = {
-        'posts': posts,
-        'title': 'About Us',
-        'odd_posts': odd_posts,
-        'even_posts': even_posts,
-    }
-    return render(request, 'test/about_us.html', context=context)
-
-
 # Function to show the post
 @login_required()
 def show_post(request, post_slug):
@@ -84,7 +70,7 @@ def show_post(request, post_slug):
         'menu': menu,
         'title': post.title,
     }
-    return render(request, 'test/post.html', context=context)
+    return render(request, 'test/product.html', context=context)
 
 
 # Function to return settings page
@@ -121,3 +107,6 @@ def contact_formview(request):
         template_name='test/contact.html',
         context={"form": form}
     )
+
+
+

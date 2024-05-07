@@ -7,7 +7,6 @@ urlpatterns = [
     path('home', index, name='home'),
     path('product/', product, name='product'),
     path('contact/', contact_formview, name='contact'),
-    path('about_us/', about_us, name='about_us'),
     path('setting', setting, name='setting'),
     path('post/<slug:post_slug>/,', show_post, name='post'),
 ]

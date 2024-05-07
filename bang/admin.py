@@ -11,9 +11,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ('is_published', 'time_create')
     prepopulated_fields = {"slug": ("title",)}
 
-class AboutMeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'photo', 'content')
-    search_fields = ('title',)
 
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'time_create', 'message')
@@ -25,7 +22,6 @@ class PayAdmin(admin.ModelAdmin):
 
 admin.site.register(Pay,PayAdmin)
 admin.site.register(Product,ProductAdmin)
-admin.site.register(AboutMe,AboutMeAdmin)
 admin.site.register(Feedback,FeedbackAdmin)
 
 

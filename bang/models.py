@@ -28,20 +28,6 @@ class Product(models.Model):
         ordering = ['time_create', 'title']
 
 
-class AboutMe(models.Model):
-    title = models.CharField(max_length=100, verbose_name='Заголовок')
-    description = models.CharField(max_length=100, verbose_name='Описание')
-    content = models.TextField(blank=True, verbose_name='Контент')
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name='Изображение')
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = 'О себе'
-        verbose_name_plural = 'О себе'
-        ordering = ['title']
-
 
 class Feedback(models.Model):
     name = models.CharField(max_length=100, verbose_name='Заголовок')
