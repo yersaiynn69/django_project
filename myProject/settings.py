@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'True'
+DEBUG = env('DEBUG')
 
 LOGGING = {
     'version': 1,
@@ -61,7 +61,7 @@ SESSION_COOKIE_SECURE = False
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
+    # 'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,8 +72,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'captcha',
     'django_recaptcha',
-    'bang.apps.BangConfig',
-    'articles.apps.ArticlesConfig',
+    'baimed.apps.BangConfig',
+    'appointments.apps.AppointmentsConfig',
     'social_django',
     'about_us',
     'chat',

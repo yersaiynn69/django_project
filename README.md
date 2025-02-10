@@ -71,3 +71,11 @@
   + Постраничный вывод объектов
   + CBV: готовые контроллеры
   + Шаблонные фильтры
+
+"redis-server"
+"python3 manage.py runserver"
+"python3 manage.py collectstatic"
+python3 manage.py makemigrations 
+python3 manage.py migrate     
+export DEBUG=DEBUG 
+export SECRET_KEY=SECRET_KEY 

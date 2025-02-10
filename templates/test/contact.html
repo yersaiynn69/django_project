@@ -4,13 +4,12 @@
     <body id="contact">
     <div class="block_main">
         <div class="lets_talk">
-            <h1>Let's Talk</h1>
-            <h4>Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your
-                project and provide help</h4>
-            <h3>Email</h3>
+            <h1>Техническая поддержка</h1>
+            <h4>Ваше здоровье — наша забота, а стабильная работа клиники — наша ответственность!</h4>
+            <h3>Почта</h3>
             <a>iliyassmagulov@gmail.com</a>
             <div class="social">
-                <h3>Social</h3>
+                <h3>Социальные Сети</h3>
                 <ul>
                     <li><a>Facebook</a></li>
                     <li><a>Tiktok</a></li>
@@ -24,23 +23,23 @@
                 {% csrf_token %}
                 <div class="form-error">{{ form.non_field_errors }}</div>
                 <div class="name">
-                    <p>Name</p>
+                    <p>ФИО</p>
                     <label class="form-label" for="{{ form.id_for_label }}">{{ form.name }}</label>
                 </div>
                 <div class="email">
-                    <p>Email</p>
+                    <p>Почта</p>
                     <label class="form-label" for="{{ form.id_for_label }}">{{ form.email }}</label>
                 </div>
                 <div class="message_area">
-                    <p>Message</p>
+                    <p>Обращение</p>
                     <label class="form-label" for="{{ form.id_for_label }}">{{ form.message }}</label>
                 </div>
                 <div class="captcha_form">
-                    <p>Re-captcha</p>
+                    <p>Captcha</p>
                     <label class="form-label" for="{{ form.id_for_label }}">{{ form.captcha }}</label>
                 </div>
                 <div class="submit">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Отправить">
                 </div>
             </form>
         </div>

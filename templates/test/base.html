@@ -11,9 +11,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'test/css/index.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'test/css/contact.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'test/css/product.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/householdDoctor.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -27,10 +31,11 @@
                 <a href="http://127.0.0.1:8000"><img class="header__logo" src="../../static/test/img/img.png"
                                                      alt="logo"></a>
                 <div class="navbar">
-                    <a id="about_us" href="http://127.0.0.1:8000/about_us/">About Us</a>
-                    <a id="service" href="http://127.0.0.1:8000/service/">Service</a>
-                    <a id="product" href="http://127.0.0.1:8000/product/">Product</a>
-                    <a id="contact" href="http://127.0.0.1:8000/contact">Contact</a>
+                    <a id="service" href="http://127.0.0.1:8000/service/">Мои данные</a>
+                    <a id="product" href="http://127.0.0.1:8000/product/">Услуги</a>
+                    <a id="householdDoctor" href="http://127.0.0.1:8000/householdDoctor">Участковый врач</a>
+                    <a id="contact" href="http://127.0.0.1:8000/contact">Поддержка</a>
+                    <a id="about_us" href="http://127.0.0.1:8000/about_us/">О нас</a>
                 </div>
                 {% if request.user.is_authenticated %}
                     <div class="success">

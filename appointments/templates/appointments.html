@@ -1,0 +1,21 @@
+{% extends 'test/base.html' %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'appointments_static/css/appointments.css' %}">
+    </head>
+    <body id="service">
+    <div class="appointment-main-block">
+        <div class="appointment_product_description">
+            <h1>{{ appointment.title }}</h1>
+            <h3>{{ appointment.content }}</h3>
+            <h3>{{ appointment.time_create }}</h3>
+        </div>
+        {% if appointment.photo %}
+            <img class="appointment-product_img" src="{{ appointment.photo.url }}">
+        {% endif %}
+
+    </div>
+    </body>
+{% endblock %}

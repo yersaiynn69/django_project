@@ -1,0 +1,142 @@
+
+.block_main {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.lets_talk{
+    margin-left: 100px;
+    margin-top: 150px;
+    margin-right: 100px;
+}
+.connect{
+    margin-left: 50px;
+}
+
+input[name=name], select {
+    width: 500px;
+    padding: 12px 20px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 2px solid #B7B7B7;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}
+
+input[name=email], select {
+    width: 500px;
+    padding: 12px 20px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 2px solid #B7B7B7;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}
+
+#id_message {
+    width: 500px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 2px solid #B7B7B7;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}
+
+
+.connect p {
+    margin-top: 15px;
+    color: #222831;
+    font-family: Poppins, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+input[value=Отправить],select {
+  border-radius: 8px;
+  width: 500px;
+  height: 52px;
+  background-color: rgba(1, 106, 112, 1);
+  padding: 11px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 1);
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+
+}
+
+input[value=Submit]:hover {
+  border: 2px solid #016A70;
+  background: white;
+  color: #016A70;
+}
+
+.connect{
+    margin-top: 50px;
+}
+
+.lets_talk h1{
+    font-size: 70px;
+    font-weight: 600;
+}
+
+.lets_talk h4{
+    font-size: 19px;
+    margin-top: 35px;
+}
+
+.lets_talk h3{
+    margin-top: 35px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.lets_talk a{
+    margin-top: 10px;
+    color: #222831;
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+}
+
+.social a{
+    text-decoration: none;
+    border-bottom: solid 1px #222831;
+}
+.social li{
+    margin-bottom: 10px;
+}
+
+.social a:hover{
+    border-bottom: solid 1px white;
+}
+
+.captcha_form {
+
+}
+
+.captcha{
+    width: 17%;
+}
+
+#id_captcha_1{
+    width: 500px;
+    padding: 12px 20px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 2px solid #B7B7B7;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+}

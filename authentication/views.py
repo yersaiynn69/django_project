@@ -1,12 +1,12 @@
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views.generic import FormView
-from bang.decorators import BaseView
+from baimed.decorators import BaseView
 from authentication.forms import *
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 
-from bang.utils import grecaptcha_verify
+from baimed.utils import grecaptcha_verify
 
 
 # Login

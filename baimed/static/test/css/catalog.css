@@ -1,0 +1,100 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+
+}
+
+.medical_services {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
+    gap: 50px; /* Равное расстояние между карточками */
+    margin: 50px auto; /* Центрирование сверху и снизу */
+    padding: 0 150px; /* Равные отступы по бокам */
+    justify-content: space-between; /* Равномерное распределение карточек */
+    width: 100%; /* Используем всю ширину контейнера */
+    max-width: 1300px; /* Ограничиваем максимальную ширину */
+    box-sizing: border-box; /* Учитываем padding */
+}
+
+
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 280px;
+    height: 280px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 100%;
+    background: #fff; /* Белый фон */
+}
+
+.service-card img {
+    margin-top: 60px;
+    width: 60px;
+    height: 60px;
+    object-fit: contain; /* Убедимся, что изображение сохраняет пропорции */
+}
+.product_name {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 100%;
+    background: #016A70;
+    border-radius: 0 0 20px 20px;
+    color: #fff;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.product_info {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 120px);
+}
+
+.buy {
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: 2px solid #FFF;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buy:hover {
+    color: #016A70;
+    background-color: white;
+}
+

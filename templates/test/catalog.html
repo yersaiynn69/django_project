@@ -16,19 +16,18 @@
 
     </head>
     <body id="product">
-    <div class="products">
+    <div class="medical_services">
         {% for p in posts %}
-            <div class="product">
+            <div class="service-card">
                 {% if p.photo %}
-                    <img src="{{ p.photo.url }}" alt="product_photo">
+                    <img src="{{ p.photo.url }}" width="10%" height="10%" alt="product_photo">
                 {% endif %}
                 <div class="product_name">
                     {% autoescape on %}
-                        <h4 class="first">{{ p.title|truncatechars:12 }}</h4>
+                        <h4 class="first">{{ p.title }}</h4>
                     {% endautoescape %}
-                    <h5 class="last">Rp. {{ p.price }}</h5>
                     <form action="{{ p.get_absolute_url }}">
-                        <button class="buy">Add</button>
+                        <button class="buy">Подробнее</button>
                     </form>
                 </div>
             </div>

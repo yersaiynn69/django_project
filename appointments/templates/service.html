@@ -1,0 +1,109 @@
+{% extends 'test/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'appointments_static/css/service.css' %}">
+    </head>
+    <body id="service">
+    <div class="medical_data">
+        <div class="wrapper">
+            <h2>Данные в поликлинике прикрепления</h2>
+            <div class="block">
+                <h3>Основная информация</h3>
+                <div class="details">
+                    <div class="label">ФИО</div>
+                    <div class="value">{{ user.last_name }}
+                        {{ user.first_name }}</div>
+
+                    <div class="label">ИИН</div>
+                    <div class="value">040809550798</div>
+
+                    <div class="label">Дата рождения</div>
+                    <div class="value">09.08.2004</div>
+
+                    <div class="label">Пол</div>
+                    <div class="value">Мужской</div>
+
+                    <div class="label">Национальность</div>
+                    <div class="value">КАЗАХ</div>
+
+                    <div class="label">Гражданство</div>
+                    <div class="value">Казахстан</div>
+
+                    <div class="label">Адрес</div>
+                    <div class="value">ГОРОД РЕСП.ЗНАЧ.: Алматы, РАЙОН ВНУТРИ ГОРОДА: Медеуский, ПРОСПЕКТ: Абая, ДОМ: 8
+                    </div>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="block">
+                <h3>Прикрепление</h3>
+                <div class="details">
+                    <div class="label">Дата начала прикрепления</div>
+                    <div class="value">20.07.2023 09:19</div>
+
+                    <div class="label">Организация прикрепления</div>
+                    <div class="value">ТОО "Qamqor Clinic Almaty"</div>
+
+                    <div class="label">Участок прикрепления</div>
+                    <div class="value">3 общей практики</div>
+
+                    <div class="label">Обслуживание на дому</div>
+                    <div class="value">Да</div>
+
+                    <div class="label">Адрес организации</div>
+                    <div class="value">-</div>
+                </div>
+            </div>
+        </div>
+        <div class="additional-info">
+            <div class="info-block">
+                <h4>Медицинская информация</h4>
+                <div class="label">Группа крови: <span>Нет данных</span></div>
+            </div>
+            <div class="info-block">
+                <h4>Маркеры (учета заболевания)</h4>
+                <div class="label">Нет ФГ: <span>01.10.2024</span></div>
+                <div class="label">Организация: <span> ТОО "Qamqor Clinic Almaty"</span></div>
+
+            </div>
+            <div class="info-block">
+                <h4>Сведения о семье</h4>
+                <div class="label">Семейное положение: <span>-</span></div>
+            </div>
+            <div class="info-block">
+                <h4>Дополнительные сведения</h4>
+                <div class="label">Комментарий: <span> Нет информации</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="info_block_2">
+        {% for p in appointments %}
+            <div class="list-articles">
+                <div>
+                    {#                    {% if p.photo %}#}
+                    {#                        <img class="img-article" src="{{ p.photo.url }}">#}
+                    {#                    {% endif %}#}
+                </div>
+                <div class="descript">
+                    <div class="article-panel">
+                        <div class="title_header"><h2>{{ p.title }}</h2></div>
+                        {% autoescape on %}
+                            <h3>{{ p.content|linebreaks|truncatewords:70 }}</h3>
+                        {% endautoescape %}
+                        <div class="appointment_date">
+                            <img class="date_logo" src="../../static/test/img/date_logo.svg" width="30px">
+                            <h4 class="last">{{ p.time_update|date:"d-m-Y H:i" }}</h4>
+                        </div>
+                        <h4>Услуга: {{ p.service_type }}</h4>
+                    </div>
+                    <h5 class="link-read-post"><a href="{{ p.get_absolute_urls }}">Подробнее</a></h5>
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </body>
+{% endblock content %}

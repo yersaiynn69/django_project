@@ -1,4 +1,4 @@
-from bang.views import index
+from baimed.views import index
 from chat.views import room
 from django.urls import path
 
