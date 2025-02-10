@@ -1,0 +1,171 @@
+{% extends 'test/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        body{
+            background-color: #f3f4f6;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 70px; /* 50px ниже от центра экрана */
+
+        }
+
+        .card {
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .card h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            margin: 12px 0;
+            color: #555;
+        }
+
+        .card p span {
+            font-weight: bold;
+        }
+
+        .update-link {
+            color: #2563eb;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .button {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            background: white;
+            color: black;
+            font-size: 1em;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background: #f0f0f0;
+            color: black;
+        }
+
+        .no-appointment {
+            text-align: center;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .no-appointment svg {
+            width: 40px;
+            height: 40px;
+            fill: #bbb;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .feedback button {
+            background: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .feedback button:hover {
+            background: #f0f0f0;
+            color: black;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #016A70;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .close-button:hover {
+            background: #45a049;
+        }
+    </style>
+
+    <div class="container">
+        <div class="card">
+            <button class="close-button" onclick="window.location.href='/home'">Закрыть</button>
+            <h1>Запись к участковому врачу</h1>
+            <p><span>ФИО пациента:</span> Смагулов Ильяс</p>
+            <p><span>Поликлиника:</span> ТОО "Qamqor Clinic Almaty" <span class="update-link">Обновить прикрепление</span></p>
+            <p><span>Участковый врач:</span> Участок: 3 общей практики</p>
+
+            <div class="button-container">
+                <button class="button">Выбрать график</button>
+                <button class="button">Вызвать врача на дом</button>
+            </div>
+
+            <div class="no-appointment">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 2h-1V1a1 1 0 0 0-2 0v1H8V1a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V5a3 3 0 0 0-3-3zM5 4h1v1a1 1 0 0 0 2 0V4h8v1a1 1 0 0 0 2 0V4h1a1 1 0 0 1 1 1v3H4V5a1 1 0 0 1 1-1zm14 16H5a1 1 0 0 1-1-1V10h16v9a1 1 0 0 1-1 1z"/>
+                </svg>
+                <p>Нет самозаписи на прием</p>
+                <p>К сожалению медицинская организация не предоставила возможность самостоятельной записи на прием.</p>
+                <p>Приносим свои извинения за временное неудобство.</p>
+
+                <div class="contact-info">
+                    <p>Для записи на прием просим Вас обратиться в регистратуру по номеру телефона: <a href="tel:+77019929395">+77019929395</a></p>
+                </div>
+
+                <div class="feedback">
+                    <p>Также, вы можете оставить отзыв в медицинскую организацию, который будет рассмотрен главным врачом организации:</p>
+                    <p><strong>БОЛАТХАН НУРЛАН БОЛАТХАНУЛЫ</strong></p>
+                    <button class="button">Оставить отзыв</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
