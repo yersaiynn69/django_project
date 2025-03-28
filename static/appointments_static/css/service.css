@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.medical_data {
+    grid-template-columns: 2fr 1fr;
+    display: grid;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.wrapper > *:not(:first-child) {
+    padding: 12px 40px;
+}
+
+
+.wrapper h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #016A70;
+    font-size: 1.5em;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 20px 40px;
+    background: #f7f7f7;
+    margin-top: 0;
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 800px;
+    margin-top: 50px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-right: 50px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.block {
+    margin-bottom: 20px;
+}
+
+.block h3 {
+    margin-top: 0px;
+    padding-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    row-gap: 10px;
+    column-gap: 20px;
+    font-size: 18px;
+}
+
+.details div {
+    padding: 5px 0;
+}
+
+.details .label {
+    color: #cccccc;
+    text-align: left;
+    font-size: 17px;
+}
+
+.details .value {
+    color: #333;
+    font-size: 17px;
+}
+
+
+.details .value > :first-child {
+    text-transform: uppercase;
+}
+
+
+.line {
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.additional-info {
+    margin-top: 50px;
+    display: grid;
+    gap: 20px;
+}
+
+.additional-info .info-block {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.additional-info .info-block > *:not(:first-child) {
+    padding: 10px 40px;
+}
+
+
+.additional-info .info-block h4 {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+.additional-info h4 {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 20px 40px;
+    background: #f7f7f7;
+    margin-top: 0px;
+    width: 100%;
+
+}
+
+.additional-info .label {
+    color: #cccccc;
+    text-align: left;
+    font-size: 17px;
+}
+
+.additional-info span {
+    color: #333;
+    font-size: 17px;
+}
+
+.info-block div {
+    padding: 20px;
+}
+
+.info-block_2 {
+    width: 300px;
+    height: 200px;
+    margin: auto; /* Горизонтальное центрирование */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.list-articles {
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-right: 250px;
+    margin-left: 250px;
+    padding: 20px 40px;
+    margin-top: 40px;
+    font-family: 'Poppins', sans-serif; /* Современный шрифт */
+    background-color: #ffffff; /* Белый фон */
+    text-align: left; /* Выравнивание текста */
+}
+
+
+.descript h3 {
+    font-size: 1.2em;
+    color: #333333; /* Темно-серый цвет */
+    margin-bottom: 10px;
+}
+
+/* Название центра */
+.descript h2 {
+    font-size: 1.8em;
+    color: #333; /* Основной акцентный цвет */
+    margin-bottom: 10px;
+}
+
+/* Дата */
+.descript h4 {
+    font-size: 1em;
+    color: #333; /* Светло-серый текст */
+    font-family: 'Poppins', sans-serif; /* Современный шрифт */
+    width: 50%;
+}
+
+
+.link-read-post {
+    margin-top: 120px;
+    width: 120px;
+    height: 45px;
+    font-size: 1em;
+    color: white; /* Белый текст */
+    background-color: #016A70; /* Основной цвет */
+    border: none; /* Убираем обводку */
+    text-align: center;
+    align-items: center;
+    display: grid;
+    border-radius: 25px; /* Закруглённая кнопка */
+    cursor: pointer;
+    float: right; /* Кнопка справа */
+    transition: all 0.3s ease; /* Анимация при наведении */
+}
+
+.link-read-post a {
+    color: white;
+}
+
+.link-read-post:hover {
+    background-color: #014f52; /* Темнее при наведении */
+    transform: scale(1.05); /* Легкое увеличение */
+}
+
+.title_header {
+    color: #333333; /* Темный текст */
+    font-size: 1.2em;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0; /* Разделитель */
+
+}
+
+.descript {
+    display: grid;
+    grid-template-columns: 10fr 1fr;
+}
+
+
+.appointment_date {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    gap: 10px; /* Расстояние между иконкой и текстом */
+    margin-top: 10px;
+}
+
+
+/* Иконка даты */
+.date_logo {
+    width: 30px; /* Размер иконки */
+    height: auto;
+}
+
+/* Текст даты */
+.last {
+    font-size: 1em;
+    color: #333333;
+    margin: 0;
+}
+
+/* Заголовок */
+.title_header h2 {
+    font-size: 1.5em;
+    color: #016A70;
+    margin-bottom: 10px;
+}
+
+/* Контент */
+.descript h3 {
+    font-size: 1.1em;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+
+
