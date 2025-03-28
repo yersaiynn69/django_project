@@ -1,12 +1,14 @@
+
 import os
 from datetime import timedelta
 from pathlib import Path
 import environ
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-env = environ.Env()
-environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
@@ -39,6 +41,7 @@ LOGGING = {
 }
 
 ALLOWED_HOSTS = ['*']
+GEOIP_PATH = os.path.join(BASE_DIR, 'myProject', 'geoip')
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
@@ -86,6 +89,9 @@ INSTALLED_APPS = [
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
 MIDDLEWARE = [
+    'myProject.middleware.KazakhstanOnlyMiddleware',
+    'myProject.middleware.SimpleFirewallMiddleware',
+    'myProject.middleware.IPBlockMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -225,3 +231,16 @@ CACHES = {
         }
     }
 }
+
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ersajin.nurdaulet@gmail.com'         
+EMAIL_HOST_PASSWORD = 'hzyo tzbc yvkd zmtv'   
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+ADMINS = [('Маржан', 'ersajin.nurdaulet@gmail.com')]   
+ 
