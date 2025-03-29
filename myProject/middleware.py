@@ -1,25 +1,24 @@
-from django.http import HttpResponseForbidden
+import os
+from django.conf import settings
 from geoip2.database import Reader
-import logging
-
-logger = logging.getLogger(__name__)
+from django.http import HttpResponseForbidden
 
 class KazakhstanOnlyMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
-        self.geo = GeoIP2()
+        db_path = os.path.join(settings.GEOIP_PATH, "GeoLite2-Country.mmdb")
+        self.reader = Reader(db_path)
 
     def __call__(self, request):
-        ip = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR', '')).split(',')[0]
+        ip = request.META.get("REMOTE_ADDR")
+        if ip == "127.0.0.1":  # allow local
+            return self.get_response(request)
 
         try:
-            country = self.geo.country(ip)['country_name']
-        except Exception as e:
-            logger.warning(f"🌍 Не удалось определить страну для IP {ip}: {e}")
-            return HttpResponseForbidden("⛔ Доступ разрешён только из Казахстана")
-
-        if country != 'Kazakhstan':
-            logger.warning(f"🚫 Блок: IP {ip}, страна: {country}")
-            return HttpResponseForbidden("⛔ Доступ только из Казахстана")
+            response = self.reader.country(ip)
+            if response.country.iso_code != "KZ":
+                return HttpResponseForbidden("Access denied outside Kazakhstan.")
+        except Exception:
+            return HttpResponseForbidden("GeoIP lookup failed.")
 
         return self.get_response(request)
