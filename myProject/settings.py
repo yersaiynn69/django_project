@@ -89,7 +89,7 @@ INSTALLED_APPS = [
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
 MIDDLEWARE = [
-    'myProject.middleware.KazakhstanOnlyMiddleware',
+    #'myProject.middleware.KazakhstanOnlyMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
