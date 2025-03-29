@@ -210,27 +210,6 @@ RECAPTCHA_PUBLIC_KEY = '6LfQiRMpAAAAAIqi8-WXzvx94naUEbGGNoUgiwCH'
 RECAPTCHA_PRIVATE_KEY = '6LfQiRMpAAAAAOeJv1phe0ISHzKdtku5OGvkvpEb'
 
 
-ASGI_APPLICATION = "myProject.routing.application"
-
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-        "CONFIG": {
-            "hosts": [("localhost", 6379)],
-        },
-    },
-}
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',  # Change this according to your Redis server's URL & port
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
-
 
 
 
