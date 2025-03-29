@@ -91,7 +91,6 @@ SOCIAL_AUTH_JSONFIELD_ENABLED = True
 MIDDLEWARE = [
     'myProject.middleware.KazakhstanOnlyMiddleware',
     'myProject.middleware.SimpleFirewallMiddleware',
-    'myProject.middleware.IPBlockMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
