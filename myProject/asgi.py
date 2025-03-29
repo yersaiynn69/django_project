@@ -7,8 +7,4 @@ from channels.auth import AuthMiddlewareStack
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myProject.settings')
 
 # Create the ASGI application
-application = ProtocolTypeRouter({
-    "http": get_asgi_application(),  # Handle HTTP requests with Django's ASGI application
-    # Uncomment and configure WebSocket routing if using Channels for WebSockets
-    # "websocket": AuthMiddlewareStack(URLRouter(your_websocket_routing_urlpatterns)),
-})
+application = get_asgi_application()
