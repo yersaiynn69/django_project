@@ -1,5 +1,5 @@
 from django.http import HttpResponseForbidden
-from django.contrib.gis.geoip2 import GeoIP2
+from geoip2.database import Reader
 import logging
 
 logger = logging.getLogger(__name__)
