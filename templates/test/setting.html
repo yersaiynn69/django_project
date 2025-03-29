@@ -1,56 +1,62 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="../../static/test/css/setting.css">
+  <link rel="stylesheet" href="{% static 'test/css/setting.css' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <script src="../../static/test/js/setting.js"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="{% static 'test/js/setting.js' %}"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <title>{{ title }}</title>
 </head>
 <body>
 <header></header>
-<div class="logo"><a href="home"><img src="../../static/test/img/white_bang.png"></a></div>
-  <div class="main">
-     <div class="setting_form">
-          <p class="account">Account Settings</p>
-          <div class="settings_set">
-              <div class="">
-                   <p class="urname">Your name</p>
-                   <label>
-                       <input type="text" name="urname" placeholder="Search your waste bank here!">
-                   </label>
-                   <p class="email">Email address</p>
-                   <label>
-                       <input type="text" name="urname" placeholder="Search your waste bank here!">
-                   </label>
-                   <p class="password">Password</p>
-                   <label>
-                       <input type="text" name="urname" placeholder="Search your waste bank here!">
-                   </label>
-                    <p class="delete"><a href="">Delete Your Account</a><br>
-                    You will recive an email to confirm your decision. <br>
-                    Please note, that all boards you have created will be permanently erased</p>
-              </div>
-              <div class="upload">
-                  <input hidden id="image" type="file"  accept="image/* ">
-                  <label for="image"><img src="../../static/test/img/upload.png"></label>
-                  <form class="submit" action="">
-                      <input  id="image_uploader" onclick="uploadImage()" type="submit" value="Upload Image">
-                  </form>
-              </div>
 
-          </div>
-          <div class="footer_set">
-                   <form action="test/index.html">
-                       <a href="home" class="Cancel">Cancel</a>
-                   </form>
-                   <form action="home">
-                       <input class="upload_file" type="submit" value="Upload File">
-                   </form>
-              </div>
-     </div>
+<div class="logo">
+  <a href="{% url 'home' %}">
+    <img src="{% static 'test/img/white_bang.png' %}">
+  </a>
+</div>
+
+<div class="main">
+  <div class="setting_form">
+    <p class="account">Account Settings</p>
+    <div class="settings_set">
+      <div>
+        <p class="urname">Your name</p>
+        <label><input type="text" name="urname" placeholder="Search your waste bank here!"></label>
+
+        <p class="email">Email address</p>
+        <label><input type="text" name="email" placeholder="Search your waste bank here!"></label>
+
+        <p class="password">Password</p>
+        <label><input type="text" name="password" placeholder="Search your waste bank here!"></label>
+
+        <p class="delete">
+          <a href="{% url 'delete_account' %}">Delete Your Account</a><br>
+          You will receive an email to confirm your decision. <br>
+          Please note, that all boards you have created will be permanently erased
+        </p>
+      </div>
+
+      <div class="upload">
+        <input hidden id="image" type="file" accept="image/*">
+        <label for="image"><img src="{% static 'test/img/upload.png' %}"></label>
+        <form class="submit" action="{% url 'upload_image' %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input id="image_uploader" type="submit" value="Upload Image">
+        </form>
+      </div>
+    </div>
+
+    <div class="footer_set">
+      <a href="{% url 'home' %}" class="Cancel">Cancel</a>
+      <form action="{% url 'home' %}">
+        <input class="upload_file" type="submit" value="Upload File">
+      </form>
+    </div>
   </div>
+</div>
 </body>
 </html>
