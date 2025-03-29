@@ -1,37 +1,31 @@
 {% extends 'test/base.html' %}
 {% load static %}
 
+{% block extra_head %}
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/catalog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'test/css/index.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
-
-    <head>
-        <meta charset="utf-8">
-        <title>{{ title }}</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="{% static 'test/css/base.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'test/css/catalog.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'test/css/index.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
-    </head>
-    <body id="product">
-    <div class="medical_services">
-        {% for p in posts %}
-            <div class="service-card">
-                {% if p.photo %}
-                    <img src="{{ p.photo.url }}" width="10%" height="10%" alt="product_photo">
-                {% endif %}
-                <div class="product_name">
-                    {% autoescape on %}
-                        <h4 class="first">{{ p.title }}</h4>
-                    {% endautoescape %}
-                    <form action="{{ p.get_absolute_url }}">
-                        <button class="buy">Подробнее</button>
-                    </form>
-                </div>
+<div class="medical_services">
+    {% for p in posts %}
+        <div class="service-card">
+            {% if p.photo %}
+                <img src="{{ p.photo.url }}" width="10%" height="10%" alt="product_photo">
+            {% endif %}
+            <div class="product_name">
+                <h4 class="first">{{ p.title }}</h4>
+                <form action="{{ p.get_absolute_url }}">
+                    <button class="buy">Подробнее</button>
+                </form>
             </div>
-        {% endfor %}
-    </div>
-    </body>
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
