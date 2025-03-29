@@ -42,19 +42,4 @@ class KazakhstanOnlyMiddleware:
             return x_forwarded_for.split(",")[0].strip()
         return request.META.get("REMOTE_ADDR")
 
-class SimpleFirewallMiddleware:
-    def __init__(self, get_response):
-        self.get_response = get_response
-        self.blocked_ips = {"192.0.2.1", "203.0.113.5"}  # Пример IP-адресов
 
-    def __call__(self, request):
-        ip = self.get_client_ip(request)
-        if ip in self.blocked_ips:
-            return HttpResponseForbidden("🔥 Your IP is blocked by firewall.")
-        return self.get_response(request)
-
-    def get_client_ip(self, request):
-        x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
-        if x_forwarded_for:
-            return x_forwarded_for.split(',')[0].strip()
-        return request.META.get("REMOTE_ADDR")
