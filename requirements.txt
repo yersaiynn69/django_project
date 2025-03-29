@@ -1,3 +1,6 @@
+django[gis]
+maxminddb
+geoip2
 daphne
 asgiref==3.7.2
 async-timeout==4.0.3
