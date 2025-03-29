@@ -1,8 +1,7 @@
 from django.urls import path
-
-from appointments.views import *
+from appointments.views import ServiceView, AppointmentDetailView
 
 urlpatterns = [
-    path('service/',  ServiceView.as_view(), name='service'),
-    path('service/<slug:appointment_slug>/,',  AppointmentDetailView.as_view(), name='show_appointment'),
+    path('service/', ServiceView.as_view(), name='service'),
+    path('service/<slug:appointment_slug>/', AppointmentDetailView.as_view(), name='show_appointment'),
 ]
