@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 <html lang="">
 
@@ -17,180 +16,136 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 </head>
 
 <body>
-
 {% block mainmenu %}
-    <header>
-        <nav>
-            {% csrf_token %}
-            <div class="topnav responsive" id="myTopnav">
+<header>
+    <nav>
+        {% csrf_token %}
+        <div class="topnav responsive" id="myTopnav">
+            <a href="{% url 'home' %}">
+                <img class="header__logo" src="{% static 'test/img/img.png' %}" alt="logo">
+            </a>
+            <div class="navbar">
+                <a id="service" href="{% url 'service' %}">Мои данные</a>
+                <a id="product" href="{% url 'product' %}">Услуги</a>
+                <a id="householdDoctor" href="{% url 'household_doctor' %}">Участковый врач</a>
+                <a id="contact" href="{% url 'contact' %}">Поддержка</a>
+                <a id="about_us" href="{% url 'about_us' %}">О нас</a>
+            </div>
 
-                <a href="http://127.0.0.1:8000"><img class="header__logo" src="../../static/test/img/img.png"
-                                                     alt="logo"></a>
-                <div class="navbar">
-                    <a id="service" href="http://127.0.0.1:8000/service/">Мои данные</a>
-                    <a id="product" href="http://127.0.0.1:8000/product/">Услуги</a>
-                    <a id="householdDoctor" href="http://127.0.0.1:8000/householdDoctor">Участковый врач</a>
-                    <a id="contact" href="http://127.0.0.1:8000/contact">Поддержка</a>
-                    <a id="about_us" href="http://127.0.0.1:8000/about_us/">О нас</a>
-                </div>
-                {% if request.user.is_authenticated %}
-                    <div class="success">
-                        <div class="dropdown">
-                            <button class="dropbtn">{{ user.username }}
-                            </button>
-                            <img src="{{ user.avatar }}">
-                            <div class="dropdown-content">
-                                <a class="user" href="{% url 'setting' %}">Profile</a>
-                                <a class="logout"
-                                   href="{% url 'logout' %}?next={{ request.path | urlencode }}">Logout</a>
-                            </div>
+            {% if request.user.is_authenticated %}
+                <div class="success">
+                    <div class="dropdown">
+                        <button class="dropbtn">{{ user.username }}</button>
+                        <img src="{{ user.avatar }}">
+                        <div class="dropdown-content">
+                            <a class="user" href="{% url 'setting' %}">Profile</a>
+                            <a class="logout" href="{% url 'logout' %}?next={{ request.path|urlencode }}">Logout</a>
                         </div>
-
                     </div>
-                {% else %}
-                    <a href="{% url 'login' %}?next={% firstof request.path '/' %}">
-                        <button class="login_button">Sign In</button>
-                    </a>
+                </div>
+            {% else %}
+                <a href="{% url 'login' %}?next={% firstof request.path '/' %}">
+                    <button class="login_button">Sign In</button>
+                </a>
+            {% endif %}
+        </div>
+    </nav>
 
-                {% endif %}
-            </div>
-        </nav>
+    {% if request.user.is_authenticated %}
+        <style>
+            #chat-container {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #fff;
+                padding: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
 
-        {% if request.user.is_authenticated %}
-            <style>
-                #chat-container {
-                    position: fixed;
-                    bottom: 20px;
-                    right: 20px;
-                    border: 1px solid #ccc;
-                    border-radius: 5px;
-                    background-color: #fff;
-                    padding: 10px;
-                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                    display: none;
+            #chat-toggle {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background-color: #016A70;
+                border: 2px solid #B7B7B7;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+
+        <div id="chat-container" style="display: none;">
+            <form id="chat-form">
+                <input type="text" id="message-input" placeholder="Type your message">
+                <button type="submit">Send</button>
+            </form>
+            <div id="chat-messages"></div>
+        </div>
+
+        <button id="chat-toggle">Open Chat</button>
+        <script>
+            function generateRandomString(length) {
+                var result = '';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                for (var i = 0; i < length; i++) {
+                    result += characters.charAt(Math.floor(Math.random() * characters.length));
                 }
+                return result;
+            }
 
-                #chat-toggle {
-                    position: fixed;
-                    bottom: 10px;
-                    right: 10px;
-                    background-color: #016A70;
-                    border: 2px solid #B7B7B7;
-                    color: #fff;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
-            </style>
-            <div id="chat-container" style="display: none;">
-                <!-- Your chat interface content goes here -->
-                <form id="chat-form">
-                    <input type="text" id="message-input" placeholder="Type your message">
-                    <button type="submit">Send</button>
-                </form>
-                <div id="chat-messages"></div>
-            </div>
-            <button id="chat-toggle">Open Chat</button>
-            <script>
-                function generateRandomString(length) {
-                    var result = '';
-                    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                    for (var i = 0; i < length; i++) {
-                        result += characters.charAt(Math.floor(Math.random() * characters.length));
-                    }
-                    return result;
-                }
+            document.getElementById('chat-toggle').addEventListener('click', function () {
+                var randomString = generateRandomString(6);
+                var newChatUrl = "{% url 'chat_base' %}" + randomString;
+                window.location.href = newChatUrl;
+            });
 
-                document.getElementById('chat-toggle').addEventListener('click', function () {
-                    // Generate a random string of length 6 (adjust as needed)
-                    var randomString = generateRandomString(6);
-
-                    // Construct the new chat URL with the random string
-                    var newChatUrl = 'http://127.0.0.1:8000/chat/' + randomString;
-
-                    // Redirect to the new chat URL
-                    window.location.href = newChatUrl;
-                });
-                // The rest of your code for handling chat interactions
-                document.getElementById('chat-form').addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    var messageInput = document.getElementById('message-input');
-                    var chatMessages = document.getElementById('chat-messages');
-
-                    // Process and send the message to the server (you may need AJAX or WebSocket for this).
-
-                    // For demonstration purposes, just display the message in the chat container.
-                    var newMessage = document.createElement('div');
-                    newMessage.textContent = messageInput.value;
-                    chatMessages.appendChild(newMessage);
-
-                    // Clear the input field
-                    messageInput.value = '';
-                });
-            </script>
-        {% endif %}
-    </header>
-    {#        <div class="message">#}
-    {#            {% if messages %}#}
-    {#                {% for message in messages %}#}
-    {#                    {% if message.tags == 'success' %}#}
-    {#                        <div class="alert alert-success alert-dismissible" role="alert">#}
-    {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
-    {#                            {{ message|safe|escape }}#}
-    {#                        </div>#}
-    {#                    {% elif message.tags == 'error' %}#}
-    {#                        <div class="alert alert-danger alert-dismissible" role="alert">#}
-    {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
-    {#                            {{ message|safe|escape }}#}
-    {#                        </div>#}
-    {#                    {% elif message.tags == 'info' %}#}
-    {#                        <div class="alert alert-info alert-dismissible" role="alert">#}
-    {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
-    {#                            {{ message|safe|escape }}#}
-    {#                        </div>#}
-    {#                    {% elif message.tags == 'warning' %}#}
-    {#                        <div class="alert alert-warning alert-dismissible" role="alert">#}
-    {#                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
-    {#                            {{ message|safe|escape }}#}
-    {#                        </div>#}
-    {#                    {% endif %}#}
-    {#                {% endfor %}#}
-    {#            {% endif %}#}
-    {#        </div>#}
+            document.getElementById('chat-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var messageInput = document.getElementById('message-input');
+                var chatMessages = document.getElementById('chat-messages');
+                var newMessage = document.createElement('div');
+                newMessage.textContent = messageInput.value;
+                chatMessages.appendChild(newMessage);
+                messageInput.value = '';
+            });
+        </script>
+    {% endif %}
+</header>
 {% endblock mainmenu %}
+
 {% block content %}
 {% endblock %}
+
 {% block footer %}
     <div class="footer">
         <section style="height:80px;"></section>
-        <!----------- Footer ------------>
         <footer class="footer_bs">
             <div class="row">
                 <div class="col-md-3 footer-brand animated fadeInLeft">
-                    <img class="logo" src="../../static/test/img/logo_master.svg" alt="logo">
-                    <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies.
-                        Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque
-                        ex mi ut sem.</p>
+                    <img class="logo" src="{% static 'test/img/logo_master.svg' %}" alt="logo">
                     <p>© 2023 BS3 UI Kit, All rights reserved</p>
                 </div>
                 <div class="col-md-4 footer-nav animated fadeInUp">
                     <h4>Menu —</h4>
                     <div class="col-md-6">
                         <ul class="pages">
-                            <li><a href="http://127.0.0.1:8000/about_us/">About Us</a></li>
-                            <li><a href="http://127.0.0.1:8000/service/">Service</a></li>
-                            <li><a href="http://127.0.0.1:8000/product/">Product</a></li>
+                            <li><a href="{% url 'about_us' %}">About Us</a></li>
+                            <li><a href="{% url 'service' %}">Service</a></li>
+                            <li><a href="{% url 'product' %}">Product</a></li>
                             <li><a href="#">Account</a></li>
                         </ul>
                     </div>
                     <div class="col-md-6">
                         <ul class="list">
                             <li><a href="#">Help/FAQ</a></li>
-                            <li><a href="http://127.0.0.1:8000/contact">Contacts</a></li>
+                            <li><a href="{% url 'contact' %}">Contacts</a></li>
                             <li><a href="#">Terms & Condition</a></li>
                             <li><a href="#">Privacy Policy</a></li>
                         </ul>
@@ -205,29 +160,15 @@
                         <li><a href="#">Email</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 footer-ns animated fadeInRight">
-                    <h4>Newsletter</h4>
-                    <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
-                    <p>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
-  </span>
-                    </div><!-- /input-group -->
-                </div>
             </div>
-            <section style="text-align:center; margin:10px auto;"><p>Designed by <a class="designer" href="/">Iliyas
-                Smagulov</a></p>
+            <section style="text-align:center; margin:10px auto;">
+                <p>Designed by <a class="designer" href="/">Iliyas Smagulov</a></p>
             </section>
         </footer>
     </div>
 {% endblock footer %}
 
-<script src="../../static/test/js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="../../static/test/js/main.js"></script>
-
-
+<script src="{% static 'test/js/vendor/modernizr-3.11.2.min.js' %}"></script>
+<script src="{% static 'test/js/main.js' %}"></script>
 </body>
-
 </html>
