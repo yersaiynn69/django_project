@@ -48,7 +48,7 @@
                     <h2 id="total_payment">{{ post.price }}</h2>
                     <div class="buttons">
                         <div>
-                            <a href="http://127.0.0.1:8000/product/" class="Cancel">Отмена</a>
+                            <a href="{% url 'product' %}" class="Cancel">Отмена</a>
                         </div>
                         <div>
                             <input class="check_out" type="submit" value="Оплатить">
